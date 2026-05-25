@@ -81,7 +81,7 @@ $PHP_BIN artisan db:seed --force || echo -e "${YELLOW}Warning: Seeders failed. C
 echo -e "${GREEN}==> Optimizing application cache...${NC}"
 $PHP_BIN artisan config:cache
 # Clear route cache instead of caching it because the app is served via a subdirectory (/public),
-# which is known to cause routing mismatches (like 405 Method Not Allowed) when route cache is enabled.
+# which is known to cause routing mismatches (like euh 405 Method Not Allowed) when route cache is enabled.
 $PHP_BIN artisan route:clear
 $PHP_BIN artisan view:cache
 $PHP_BIN artisan event:cache
