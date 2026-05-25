@@ -30,11 +30,17 @@ echo -e "Working directory: $(pwd)"
 
 # 1. Handle .env file configuration
 if [ ! -f ".env" ]; then
-    echo -e "${YELLOW}Warning: .env file not found. Copying .env.example...${NC}"
-    cp .env.example .env
-    echo -e "${YELLOW}Generating application key...${NC}"
-    $PHP_BIN artisan key:generate --force
-    echo -e "${RED}IMPORTANT: Please configure your database and other production environment variables in the newly created .env file.${NC}"
+    if [ -f ".env.example" ]; then
+        echo -e "${YELLOW}Warning: .env file not found. Copying from .env.example...${NC}"
+        cp .env.example .env
+        echo -e "${YELLOW}Generating application key...${NC}"
+        $PHP_BIN artisan key:generate --force
+        echo -e "${RED}IMPORTANT: Please configure your database and other production environment variables in the newly created .env file.${NC}"
+    else
+        echo -e "${RED}Error: .env file is missing, and .env.example could not be found to initialize it.${NC}"
+        echo -e "${RED}Please manually create/upload a .env file on the production server at: $(pwd)/.env${NC}"
+        exit 1
+    fi
 else
     echo -e "${GREEN}✓ .env file exists.${NC}"
 fi
