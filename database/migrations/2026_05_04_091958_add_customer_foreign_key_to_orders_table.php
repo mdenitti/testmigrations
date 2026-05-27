@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 110);
+        Schema::table('orders', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign(['customer_id']);
+        });
     }
 };
