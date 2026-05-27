@@ -175,7 +175,7 @@
 			</div>
 		</div>
 
-		<h1>UFO Watchtower</h1>
+		<h1>UAP Watchtower</h1>
 		<p>
 			Welcome to the edge of the unknown. Track strange lights, decode mysterious signals,
 			and keep your eyes on the skies for the next incredible close encounter.
