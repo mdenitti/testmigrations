@@ -2,7 +2,7 @@
 # post-deploy.sh
 # Production post-deployment script for Laravel applications.
 #
-# This script is executed on the production server after new files are copied.
+# This script is hopefully executed on the production server after new files are copied.
 
 # Exit immediately if a command exits with a non-zero status
 set -e
